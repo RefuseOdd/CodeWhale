@@ -1359,9 +1359,8 @@ fn merge_project_provider_config(target: &mut ProviderConfigToml, source: &Provi
     if source.model.is_some() {
         target.model = source.model.clone();
     }
-    if source.path_suffix.is_some() {
-        target.path_suffix = source.path_suffix.clone();
-    }
+    // path_suffix is intentionally not copied from project config for security reasons
+    // see: https://github.com/Hmbown/CodeWhale/pull/2558#event-26311151498
 }
 
 #[must_use]
